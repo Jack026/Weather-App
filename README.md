@@ -13,6 +13,10 @@ Welcome to the **Weather App**! This app is built using **Flutter** and is desig
 ## 🚀 High-Quality Design
 Our weather app isn't just functional—it's also **visually striking**. We focused on delivering an app that combines both **aesthetic appeal** and **ease of use**. The colors, typography, and animations all work together to offer a **premium experience**.
 
+## Built With
+<img src="https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white" alt="Flutter" /> <img src="https://img.shields.io/badge/Dart-%230175C2.svg?style=for-the-badge&logo=Dart&logoColor=white" alt="Dart" />
+
+
 ## 🛠️ Tech Stack
 - **Framework**: Flutter 🐦
 - **Language**: Dart 🎯
