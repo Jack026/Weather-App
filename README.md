@@ -1,3 +1,4 @@
+------
 # 🌦️ Weather App - Flutter
 
 Welcome to the **Weather App**! This app is built using **Flutter** and is designed to provide real-time weather updates with a **beautiful and high-quality user interface**. Whether you're planning your day or just want to stay informed about the weather, this app has you covered. 
@@ -46,9 +47,9 @@ The latest release can be downloaded here:
 ## 🖼️ Screenshots
 Here’s a sneak peek of what the app looks like in action!
 
-| Home Screen | 7-Day Forecast |
-|-------------|----------------|
-| ![Home]([link-to-screenshot-home](https://drive.google.com/uc?export=view&id=1es84OjxcFhdjnAZzXtDzNtsXzkVwLE5y)) | ![Forecast](link-to-screenshot-forecast) |
+| Home Screen |
+|-------------|
+| <img src="https://drive.google.com/uc?export=view&id=1es84OjxcFhdjnAZzXtDzNtsXzkVwLE5y" alt="Home Screen" width="216" height="468" /> | ![Forecast](link-to-screenshot-forecast) |
 
 ## 👨‍💻 Developer
 Created by **SJS Creation** 💡 – We are committed to delivering high-quality mobile apps that make life easier!
