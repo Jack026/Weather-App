@@ -41,7 +41,7 @@ Make sure you have set up Flutter and the required development environment befor
 ## 📦 Releases
 The latest release can be downloaded here:
 
-**[Download Weather App - v1.0.0 🚀](https://github.com/jack026/Weather-App/releases/tag/v1.0)**
+**[Download Weather App - v1.0.0 🚀](https://github.com/Jack026/Weather-App/releases/tag/1.0)**
 
 ## 🖼️ Screenshots
 Here’s a sneak peek of what the app looks like in action!
