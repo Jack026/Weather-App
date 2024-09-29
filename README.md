@@ -23,7 +23,7 @@ To run the app locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/jack026/weather-app.git
+   git clone https://github.com/jack026/Weather-App.git
    ```
 
 2. Install the required dependencies:
