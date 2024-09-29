@@ -24,6 +24,6 @@ Examples of unacceptable behavior by participants include:
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at [your email]. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at souravjyotisahariah@gmail.com . All complaints will be reviewed and investigated promptly and fairly.
 
 We reserve the right to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct. 
