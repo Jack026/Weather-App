@@ -58,4 +58,7 @@ Here’s a sneak peek of what the app looks like in action!
 ## 👨‍💻 Developer
 Created by **SJS Creation** 💡 – We are committed to delivering high-quality mobile apps that make life easier!
 
+ ## 💰 You can help me by Donating
+  [![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/souravjsdev) [![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/jacksti) 
+  
 ---
