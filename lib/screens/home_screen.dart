@@ -5,7 +5,40 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+// Ensure this path is correct for your project structure
 import 'package:weather_app/bloc/weather_bloc_bloc.dart';
+// You might need to define WeatherBlocState, WeatherBlocSuccess, WeatherBlocLoading,
+// WeatherBlocInitial, WeatherBlocFailure if they are not exported by weather_bloc_bloc.dart
+// For example, if they are in a separate file:
+// import 'package:weather_app/bloc/weather_bloc_state.dart';
+
+const String YOUR_NAME = "Sourav Jyoti Sahariah";
+
+const String ABOUT_ME_SUMMARY = """
+Hi! I'm Sourav Jyoti Sahariah, a B.Tech Computer Science and Engineering student at Assam down town University. 
+I'm passionate about building AI-driven applications, full-stack systems, and impactful tech solutions.
+
+Key Skills: Flutter, Python, OpenCV, ML/DL, Django, Flask, Dart, MySQL
+
+Projects I've built include:
+- AI Fake News Detector
+- Legal AI Chatbot
+- TrackGuard IoT Security System
+- SafeWalk Women’s Safety App
+- YouTube Downloader, and more
+
+Let's connect:
+GitHub: github.com/jack026  
+LinkedIn: linkedin.com/in/sourav-jyoti-sahariah
+""";
+
+const String PM_ACCELERATOR_DESCRIPTION = """
+Product Manager Accelerator empowers aspiring and current product managers with the skills, 
+knowledge, and network to excel in their careers. We provide hands-on training, mentorship, 
+and real-world project experience to accelerate your journey into product leadership.
+""";
+
+// REPLACE THIS WITH ACTUAL TEXT FROM THEIR LINKEDIN
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,6 +49,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Future<void> _refreshWeather(BuildContext context) async {
+    // This assumes your WeatherBlocBloc has a method `fetchWeatherData`.
+    // If it uses events, it should be:
+    // BlocProvider.of<WeatherBlocBloc>(context).add(YourFetchEvent());
     await BlocProvider.of<WeatherBlocBloc>(context).fetchWeatherData();
   }
 
@@ -74,6 +110,41 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  // Function to show the info dialog
+  void _showInfoDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext dialogContext) { // Renamed to avoid conflict with outer context
+        return AlertDialog(
+          title: const Text('About This Application'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('Developed by: $YOUR_NAME', style: const TextStyle(fontWeight: FontWeight.bold)),
+                const SizedBox(height: 10),
+                const Text('About My Development:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                const SizedBox(height: 5),
+                Text(ABOUT_ME_SUMMARY),
+                const Divider(height: 30, thickness: 1),
+                const Text('About Product Manager Accelerator:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                const SizedBox(height: 5),
+                Text(PM_ACCELERATOR_DESCRIPTION),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Close'),
+              onPressed: () {
+                Navigator.of(dialogContext).pop(); // Use dialogContext here
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,6 +156,15 @@ class _HomeScreenState extends State<HomeScreen> {
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarBrightness: Brightness.dark,
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.info_outline, color: Colors.white), // Added color for visibility
+            tooltip: 'Information',
+            onPressed: () {
+              _showInfoDialog(context); // Call the function to show dialog
+            },
+          ),
+        ],
       ),
       body: RefreshIndicator(
         onRefresh: () => _refreshWeather(context),
@@ -123,11 +203,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: 600,
                     decoration: DateTime.now().hour >= 5 && DateTime.now().hour < 17
                         ? const BoxDecoration(
-                      color: Color(0xFFFFAB40),
-                    )
+                            color: Color(0xFFFFAB40),
+                          )
                         : const BoxDecoration(
-                      color: Color.fromARGB(255, 78, 53, 253),
-                    ),
+                            color: Color.fromARGB(255, 78, 53, 253),
+                          ),
                   ),
                 ),
                 BackdropFilter(
@@ -136,38 +216,30 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: const BoxDecoration(color: Colors.transparent),
                   ),
                 ),
-                Align(
-                  alignment: const AlignmentDirectional(0, -3.0),
-                  child: Container(
-                    height: 600,
-                    width: 700,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      color: Color(0x7834F1),
-                    ),
-                    child: DateTime.now().hour >= 5 && DateTime.now().hour < 17
-                        ? null
-                        : Stack(
-                      children: List.generate(
-                        50,
-                            (index) {
-                          final left = Random().nextInt(300).toDouble();
-                          final top = Random().nextInt(500).toDouble();
-                          return Positioned(
-                            left: left,
-                            top: top,
-                            child: const Icon(
-                              Icons.star,
-                              color: Colors.white,
-                              size: 2,
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-
-                  ),
+                Positioned.fill(
+  child: DateTime.now().hour >= 5 && DateTime.now().hour < 17
+      ? Container() // No stars in day mode
+      : Stack(
+          children: List.generate(
+            70,
+            (index) {
+              final screenWidth = MediaQuery.of(context).size.width;
+              final screenHeight = MediaQuery.of(context).size.height;
+              final left = Random().nextDouble() * screenWidth;
+              final top = Random().nextDouble() * screenHeight;
+              return Positioned(
+                left: left,
+                top: top,
+                child: const Icon(
+                  Icons.star,
+                  color: Colors.white,
+                  size: 2,
                 ),
+              );
+            },
+          ),
+        ),
+),
 
                 BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
                   builder: (context, state) {
@@ -358,7 +430,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ],
                                     )
                                   ],
-                                )
+                                ),
                               ],
                             ),
                             const Spacer(),
@@ -378,7 +450,18 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       );
+                    } else if (state is WeatherBlocLoading || state is WeatherBlocInitial) {
+                      return const Center(child: CircularProgressIndicator(color: Colors.white));
+                    } else if (state is WeatherBlocFailure) {
+                      return const Center(
+                        child: Text(
+                          'Failed to load weather data.\nPull to refresh.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      );
                     } else {
+                      // Fallback for any other unhandled states
                       return Container();
                     }
                   },
@@ -387,6 +470,37 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+// Your main app structure to run HomeScreen
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider<WeatherBlocBloc>(
+      create: (context) {
+        final bloc = WeatherBlocBloc();
+        // Trigger initial data fetch when BLoC is created.
+        // Adjust if your BLoC uses events: bloc.add(YourInitialFetchEvent());
+        bloc.fetchWeatherData();
+        return bloc;
+      },
+      child: MaterialApp(
+        title: 'Weather App',
+        theme: ThemeData(
+          brightness: Brightness.dark, // Match HomeScreen's dark theme
+          primarySwatch: Colors.deepPurple, // Or any color you prefer
+        ),
+        home: const HomeScreen(),
+        debugShowCheckedModeBanner: false,
       ),
     );
   }
