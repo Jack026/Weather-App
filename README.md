@@ -62,3 +62,9 @@ Created by **SJS Creation** 💡 – We are committed to delivering high-quality
   [![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/souravjsdev) [![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/jacksti) 
   
 ---
+PM_ACCELERATOR_DESCRIPTION
+Product Manager Accelerator empowers aspiring and current product managers with the skills, 
+knowledge, and network to excel in their careers. We provide hands-on training, mentorship, 
+and real-world project experience to accelerate your journey into product leadership.
+LinkedIn: https://www.linkedin.com/school/pmaccelerator/
+"""
